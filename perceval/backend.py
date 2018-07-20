@@ -379,10 +379,8 @@ class BackendCommand:
                           manager=self.archive_manager)
 
         try:
-            for item in items:
-                obj = json.dumps(item, indent=4, sort_keys=True)
-                self.outfile.write(obj)
-                self.outfile.write('\n')
+            obj = json.dumps(list(items), indent=4, sort_keys=True)
+            self.outfile.write(obj)
         except IOError as e:
             raise RuntimeError(str(e))
         except Exception as e:
