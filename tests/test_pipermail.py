@@ -540,7 +540,7 @@ class TestPipermailCommand(unittest.TestCase):
 
         cmd = PipermailCommand(*args)
         self.assertEqual(cmd.parsed_args.dirpath,
-                         os.path.join(self.tmp_path, 'testpath/http://example.com/'))
+                         os.path.join(self.tmp_path, 'testpath\\example.com'))
 
         args = ['http://example.com/',
                 '--mboxes-path', '/tmp/perceval/']

@@ -26,6 +26,7 @@
 import datetime
 import logging
 import os
+from urllib.parse import urlparse
 
 import bs4
 import dateutil
@@ -138,7 +139,7 @@ class PipermailCommand(BackendCommand):
 
         if not self.parsed_args.mboxes_path:
             base_path = os.path.expanduser('~/.perceval/mailinglists/')
-            dirpath = os.path.join(base_path, self.parsed_args.url)
+            dirpath = os.path.join(base_path, urlparse(self.parsed_args.url).netloc)
         else:
             dirpath = self.parsed_args.mboxes_path
 
